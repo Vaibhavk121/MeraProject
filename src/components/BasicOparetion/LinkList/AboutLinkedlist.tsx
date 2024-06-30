@@ -1,122 +1,144 @@
 "use client";
-
 import { Button } from '@/components/ui/button';
-import React, { useRef } from 'react';
-import SameCube from '@/components/objects/SameCube';
-import { GoArrowUpRight } from "react-icons/go";
+import React, { useRef, useState } from "react";
+import MedCube from '@/components/objects/MedCube';
 import Link from 'next/link';
-import './LinkedListFunction.css';
+import { FaAngleLeft, FaAngleRight, FaAnglesDown } from 'react-icons/fa6';
 
+const AboutLinkedlist = () => {
 
-const AboutLinklist = () => {
-  const targetSectionRef = useRef<HTMLDivElement>(null);
-
-  const handleScroll = () => {
-    if (targetSectionRef.current) {
-      targetSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const linkButtonClass = 
-    "flex h-full items-center justify-around border-[1px] border-black py-2 bg-white opacity-70 hover:opacity-90 active:scale-[0.9] duration-200 px-4";
-
+    const handleScroll = () => {
+        if (targetSectionRef.current) {
+          targetSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+      
+      const targetSectionRef = useRef<HTMLDivElement>(null);
+      const [isHoverLeft, setIsHoverLeft] = useState(false);
+      const [isHoverRight, setIsHoverRight] = useState(false);
+      
+      const linkButtonClass =
+      "flex h-full w-[25rem] rounded-t-md items-center justify-center border-[1px] border-black py-2 bg-white opacity-70 hover:opacity-90 active:scale-[0.9] duration-200 ";
   return (
     <>
-    <section className='  h-screen w-screen bg-black flex justify-center items-center relative'>
-    <div className='rounded-md h-[250px] w-[620px] bg-black bg-opacity-50 relative flex flex-col items-center justify-center p-4'>
-          <h2 className='text-white  font-bold'>Linked List</h2>
-          <p className='text-white text-center mt-5'>
-            A linked list is a dynamic data structure where each element (node) contains data and a pointer to the next node, allowing efficient insertions and deletions but requiring sequential access. Types include singly, doubly, and circular linked lists.
-          </p>
-          <Button
-            className='mt-7 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-            onClick={handleScroll}
-          >
-            Visualize it!
-          </Button>
-        </div>
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <SameCube
-            height={"h-[350px]"}
-            barwidth={"w-[70px]"}
-            topbarwidth={"w-[80px]"}
-            topbarheight={"h-[70px]"}
-            wtop=""
-            bottom="bottom-[13rem]"
-            left=""
-            right="right-[26vh]"
-          />
-          <SameCube
-            height={"h-[350px]"}
-            barwidth={"w-[70px]"}
-            topbarwidth={"w-[80px]"}
-            topbarheight={"h-[70px]"}
-            wtop=""
-            bottom="bottom-[10rem]"
-            left=""
-            right="right-[42vh]"
-          />
-          <SameCube
-            height={"h-[350px]"}
-            barwidth={"w-[70px]"}
-            topbarwidth={"w-[80px]"}
-            topbarheight={"h-[70px]"}
-            wtop=""
-            bottom="bottom-[7rem]"
-            left=""
-            right="right-[58vh]"
-          />
-          <SameCube
-            height={"h-[350px]"}
-            barwidth={"w-[70px]"}
-            topbarwidth={"w-[80px]"}
-            topbarheight={"h-[70px]"}
-            wtop=""
-            bottom="bottom-[13rem]"
-            left="left-[1vh]"
-            right=""
-          />
-          <SameCube
-            height={"h-[350px]"}
-            barwidth={"w-[70px]"}
-            topbarwidth={"w-[80px]"}
-            topbarheight={"h-[70px]"}
-            wtop=""
-            bottom="bottom-[10rem]"
-            left="left-[18vh]"
-            right=""
-          />
-          <SameCube
-            height={"h-[350px]"}
-            barwidth={"w-[70px]"}
-            topbarwidth={"w-[80px]"}
-            topbarheight={"h-[70px]"}
-            wtop=""
-            bottom="bottom-[7rem]"
-            left="left-[34vh]"
-            right=""
-          />
-        </div>
+      <section className="relative flex h-[85vh] flex-col items-center justify-around overflow-hidden text-white">
+        <h1 className="p-10 text-6xl">Linked List</h1>
+        <p className="w-[60%] text-center text-2xl">
+        A linked list is a dynamic data structure where each element (node) contains data and a pointer to the next node, allowing efficient insertions and deletions but requiring sequential access. Types include singly, doubly, and circular linked lists.
+        </p>
+        <Button variant={"secondary"} className="text-lg m-2"
+        onClick={handleScroll}
+        >
+          Visualise it!
+        </Button>
+        <Link href={"#new"} className="flex items-center gap-2">
+          <FaAnglesDown size={"1.5rem"} />
+          <p className="text-lg">Scroll down</p>
+        </Link>
+        <MedCube
+          height={"h-[500px]"}
+          barwidth={"w-[90px]"}
+          topbarwidth={"w-[104px]"}
+          topbarheight={"h-[90px]"}
+          wtop=""
+          bottom="bottom-[19rem]"
+          left="left-[2%]"
+          right=""
+        />
+        <MedCube
+          height={"h-[500px]"}
+          barwidth={"w-[90px]"}
+          topbarwidth={"w-[104px]"}
+          topbarheight={"h-[90px]"}
+          wtop=""
+          bottom="bottom-[14rem]"
+          left="left-[12%]"
+          right=""
+        />
+        <MedCube
+          height={"h-[500px]"}
+          barwidth={"w-[90px]"}
+          topbarwidth={"w-[104px]"}
+          topbarheight={"h-[90px]"}
+          wtop=""
+          bottom="bottom-[9rem]"
+          left="left-[22%]"
+          right=""
+        />
+        <MedCube
+          height={"h-[500px]"}
+          barwidth={"w-[90px]"}
+          topbarwidth={"w-[104px]"}
+          topbarheight={"h-[90px]"}
+          wtop=""
+          bottom="bottom-[19rem]"
+          left="right-[8%]"
+          right=""
+        />
+        <MedCube
+          height={"h-[500px]"}
+          barwidth={"w-[90px]"}
+          topbarwidth={"w-[104px]"}
+          topbarheight={"h-[90px]"}
+          wtop=""
+          bottom="bottom-[14rem]"
+          left="right-[18%]"
+          right=""
+        />
+        <MedCube
+          height={"h-[500px]"}
+          barwidth={"w-[90px]"}
+          topbarwidth={"w-[104px]"}
+          topbarheight={"h-[90px]"}
+          wtop=""
+          bottom="bottom-[9rem]"
+          left="right-[28%]"
+          right=""
+        />
         <div className="absolute bottom-0 flex w-full justify-between text-3xl font-thin text-black">
-          <Link href="/stacks" className={`${linkButtonClass} w-[350px] hover:slide-up`}>
-            <div className="flex items-center animate-slide">
-              <p>Stack</p> <GoArrowUpRight size={"3rem"} />
+        <Link
+            href="/arrays"
+            className={linkButtonClass}
+            onMouseEnter={() => setIsHoverLeft(true)}
+            onMouseLeave={() => setIsHoverLeft(false)}
+          >
+            <div
+              className={
+                "flex items-center duration-100 " +
+                `${isHoverLeft ? "translate-y-0" : "translate-y-[3rem]"} `
+              }
+            >
+              <FaAngleLeft size={"2rem"} /> <p>Array</p>
             </div>
           </Link>
-          <Link href="#" className={`${linkButtonClass} w-[350px] hover:slide-up`}>
-            <div className="flex items-center animate-slide">
-              <p>Queue</p> <GoArrowUpRight size={"3rem"} />
+
+
+          <Link
+            href="/stacks"
+            className={linkButtonClass}
+            onMouseEnter={() => setIsHoverRight(true)}
+            onMouseLeave={() => setIsHoverRight(false)}
+          >
+            <div
+              className={
+                "flex items-center duration-100 w-[340px] justify-center " +
+                `${isHoverRight ? "translate-y-0" : "translate-y-[3rem]"} `
+              }
+            >
+              <p>Stack</p> <FaAngleRight size={"2rem"} />
             </div>
           </Link>
         </div>
+        </section>
 
-      </section>
 
       {/* This is the target section to scroll to */}
       <section ref={targetSectionRef} >
       </section>
     </>
-  );
+  )
 }
 
-export default AboutLinklist;
+export default AboutLinkedlist
+
+
