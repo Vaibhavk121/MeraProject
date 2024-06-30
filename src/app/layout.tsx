@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Righteous } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/nav-footer/Navbar";
+import { ParticalBg } from "@/components/BasicOparetion/ParticalBg";
 
 const inter = Righteous({
   subsets: ["latin"],
-  weight: ["400"]
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ParticalBg />
+      <body className={inter.className + " relative"}>
+        <Navbar/>
+        {children}
+      </body>
     </html>
   );
 }

@@ -5,17 +5,17 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const activeClass = "rounded border-2 border-green-400 bg-green-400";
-  const basicButtonClass = " mx-4 my-2 px-5 py-1 rounded-full text-base text-2xl ";
+  const activeClass = "rounded border-2 border-green-400 bg-green-400 ";
+  const basicButtonClass = " mx-3 my-3 px-5 py-1 rounded-full text-base text-2xl ";
 
   
   return (
-    <nav className="flex w-full justify-center py-5">
-      <div className="flex h-max w-fit rounded-full border-2 border-green-400 text-5xl">
+    <section className="flex w-full justify-center min-h-[15vh] items-center bg-black text-white overflow-hidden ">
+      <div className="flex h-max w-[35%] justify-center rounded-full border-2 border-green-400 text-5xl">
         <Link
           href="/"
           className={
-            `${pathname === "/" ? activeClass : ""} ` + basicButtonClass + "text-2xl"
+            `${pathname === "/" ? activeClass : ""} ` + basicButtonClass 
           }
         >
           Home
@@ -26,7 +26,7 @@ export default function Navbar() {
             `${pathname === "/sketch" ? activeClass : ""} ` + basicButtonClass
           }
         >
-          Sketch
+          Visualize
         </Link>
         <Link
           href="/aboutus"
@@ -37,6 +37,6 @@ export default function Navbar() {
           About Us
         </Link>
       </div>
-    </nav>
+    </section>
   );
 }

@@ -20,7 +20,7 @@ const AboutSection = () => {
             </p>
         </div>
 
-        <div className="about_picture h-full w-1/3 ">
+        <div className="about_picture h-full w-1/3 ">snippedToSketch
           <Image src={img} alt="about_image" />
         </div>
       </div>
