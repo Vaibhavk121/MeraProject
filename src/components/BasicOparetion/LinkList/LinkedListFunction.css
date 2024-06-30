@@ -1,79 +1,14 @@
 .Linkedlist{
     position: absolute;
-    left: 15vh;
-    top: 5vh;
+    left: 16vh;
+    top: 1vh;
     color: white;
-}
-
-.horizontal-scroll-container {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.scrollerLinklist{
-  display: inline-block; /* Ensures elements don't stack vertically */
+    width: 100px;
+     height: 60px ;
 }
 
 
-/* Define the slide-up animation */
-@keyframes slideUp {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  /* Apply the animation on hover */
-  .hover\:slide-up:hover .animate-slide {
-    animation: slideUp 0.5s forwards;
-  }
-  
-  /* Ensure the text and icon are initially positioned off-screen */
-  .animate-slide {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  
-  /* Ensure animation does not affect layout before hover */
-  .hover\:slide-up {
-    overflow: hidden;
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 
-  .linkButtonClass {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: around;
-    border: 1px solid black;
-    padding: 2px 4px;
-    background-color: white;
-    opacity: 0.7;
-    transition: opacity 0.2s, transform 0.2s;
-    animation: slideUp 0.5s ease-out forwards;
-  }
-
-  .linkButtonClass:hover {
-    opacity: 0.9;
-  }
-
-  .linkButtonClass:active {
-    transform: scale(0.9);
-  }
 
 
   

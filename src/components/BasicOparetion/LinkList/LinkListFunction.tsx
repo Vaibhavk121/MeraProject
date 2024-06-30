@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button"; // Importing Button component f
 import gsap from "gsap"; // Importing GSAP for animations
 import { useGSAP } from "@gsap/react"; // Importing useGSAP for context-safe GSAP animations
 import './LinkedListFunction.css'
-import { FaLongArrowAltRight } from "react-icons/fa";
-import AboutLinklist from './AboutLinkedlist';
+import { CgArrowLongRightC } from "react-icons/cg";
+import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 // Defining the ListItem interface
 interface ListItem {
@@ -14,6 +14,7 @@ interface ListItem {
 }
 
 const LinkListFunction = () => {
+    const [isOpen, setIsOpen] = useState(true);
     const boxClassVariable = "flex h-14 w-14 items-center justify-center rounded-lg text-white text-xl font-medium drop-shadow-lg ";
 
     const [defaultText, setDefaultText] = useState(true); // State for showing default text
@@ -116,16 +117,17 @@ const LinkListFunction = () => {
             setTimeout(() => {
                 gsap.from(`.box${newItem.id}`, {
                     background: "blue",
-                    x: -50,
+                    y:-100,
                     stagger: 0.1,
                     visibility: 0,
                     ease: "back.Out",
-                    duration: 1,
+                    duration: 2,
                     delay: 0.1,
                 });
             }, 10);
         });
         onAppendFirst();
+        
     };
 
     // Append an element to the end of the list
@@ -147,7 +149,7 @@ const LinkListFunction = () => {
                     stagger: 0.1,
                     visibility: 0,
                     ease: "back.Out",
-                    duration: 1,
+                    duration: 2,
                     delay: 0.1,
                 });
             }, 10);
@@ -174,11 +176,11 @@ const LinkListFunction = () => {
                 gsap.from(`.box${newItem.id}`, {
                     background: 'green',
                     x: 0,
-                    y: -50,
-                    stagger: 0.1,
+                    y: -100,
+                    stagger: 0.2,
                     visibility: 0,
                     ease: "back.Out",
-                    duration: 1,
+                    duration: 2,
                     delay: 0.1,
                 });
             }, 10);
@@ -267,187 +269,221 @@ const LinkListFunction = () => {
 
     return (
         <>
-        <AboutLinklist/>
-        <section
-        ref={container}
-        className=" shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]
-        mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
-        >
-
-        <div className="border-white border-r-2 border-solid bg-black text-white rounded-sm">
-            <p className=" justify-center flex border-y-2 border-solid p-1 text-xl border-white">Operation</p>
-            <div className="flex items-center m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Create a size N =
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={createInputHandler}
-                    value={createNumber}
-                    type="number"
-                    min="1"
-                    max="100"
-                />
-                </span>
-                <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2" onClick={generateDefaultList}>
-                Create
-                </Button>
-            </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Insert to the list
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={appendInputHandler1}
-                    value={appendNumber1}
-                    type="number"
-                    min="1"
-                    max="100"
-                />
-                </span>
-                <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElementFirst}>
-                front
-                </Button>
-            </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Insert in rare of the list 
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={appendInputHandler}
-                    value={appendNumber}
-                    type="number"
-                    min="1"
-                    max="100"
-                />
-                </span>
-                <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElement}>
-                rear
-                </Button>
-            </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Insert
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={insertInputHandler}
-                    value={insertNumber}
-                    type="number"
-                    min="1"
-                    max="100"
-                />
-                <span className="ml-2">at Index </span>
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={insertPositionHandler}
-                    value={insertPosition}
-                    type="number"
-                    min="0"
-                    max="100"
-                />
-                </span>
-                <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={insertOneElement}>
-                middle
-                </Button>
-            </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Delete element at =
-                </span>
-                <div className="flex gap-2 ml-2">
-                <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromFront}>
-                    Front
-                </Button>
-                <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromRear}>
-                    Rear
-                </Button>
-                </div>
-            </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Delete element at Index 
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={deletePositionHandler}
-                    value={deletePosition}
-                    type="number"
-                    min="0"
-                    max="100"
-                />
-                </span>
-                <div className="flex flex-col gap-2 ml-2">
-                <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromMiddle}>
-                    Middle
-                </Button>
-                </div>
-            </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 m-2">
-            <div className="flex w-full justify-between items-center">
-                <span className="text-md font-medium flex items-center">
-                Number to Search
-                <input
-                    className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
-                    onChange={searchInputHandler}
-                    value={searchNumber}
-                    type="number"
-                    min="1"
-                    max="100"
-                />
-                </span>
-                <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={searchElement}>
-                Search
-                </Button>
-            </div>
-            </div>
-        </div>
-
-        <div className="flex flex-wrap justify-center border-2 items-center flex-grow">
-            {defaultText && (
-            <span className="flex items-center  justify-center text-2xl font-medium text-center text-white">
-                Click an Operation to view the Linked List
-            </span>
-            )}
-            <div className="horizontal-scroll-container">
-                {noOfList.map((ele, i) => (
-                    <div key={ele.id} className="relative scrollerLinklist m-4">
-                        {i < noOfList.length - 1 && <FaLongArrowAltRight className="Linkedlist" />}
-                        <div className="relative border-gray-400 border-4 p-1 rounded-md">
-                            <div className={boxClassVariable + " box " + "box" + ele.id}>
-                                {ele.value.toString()}
-                            </div>
-                            {i === 0 && (
-                                <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-6 text-xl text-green-500 text-center">Head</div>
-                            )}
-                            {i === noOfList.length - 1 && (
-                                <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-6 text-xl text-red-500 text-center">Tail</div>
-                            )}
+            <p className=' flex justify-center items-center text-xl text-white p-5 '>Linked List</p>
+            <section
+            ref={container}
+            className=" shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]
+            h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
+            >
+                <div className="relative flex">
+                <div className={`border-white border-r-2 border-solid bg-black text-white rounded-sm transition-all duration-300 ${isOpen ? 'w-96' : 'w-0 overflow-hidden'}`}>
+                    {isOpen && (
+                    <>
+                        <p className="justify-center flex border-y-2 border-solid p-1 text-xl border-white">Operation</p>
+                        <div className="flex items-center m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Create a size N =
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={createInputHandler}
+                                value={createNumber}
+                                type="number"
+                                min="1"
+                                max="100"
+                            />
+                            </span>
+                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2" onClick={generateDefaultList}>
+                            Create
+                            </Button>
                         </div>
-                        <div className="text-lg font-medium text-center">{i}</div>
-                    </div>
-                ))}
+                        </div>
+                        <div className="flex flex-col items-center gap-3 m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Insert to the list
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={appendInputHandler1}
+                                value={appendNumber1}
+                                type="number"
+                                min="1"
+                                max="100"
+                            />
+                            </span>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElementFirst}>
+                            front
+                            </Button>
+                        </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-3 m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Insert in rare of the list
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={appendInputHandler}
+                                value={appendNumber}
+                                type="number"
+                                min="1"
+                                max="100"
+                            />
+                            </span>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElement}>
+                            rear
+                            </Button>
+                        </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-3 m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Insert
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={insertInputHandler}
+                                value={insertNumber}
+                                type="number"
+                                min="1"
+                                max="100"
+                            />
+                            <span className="ml-2">at Index </span>
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={insertPositionHandler}
+                                value={insertPosition}
+                                type="number"
+                                min="0"
+                                max="100"
+                            />
+                            </span>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={insertOneElement}>
+                            middle
+                            </Button>
+                        </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-3 m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Delete element at =
+                            </span>
+                            <div className="flex gap-2 ml-2">
+                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromFront}>
+                                Front
+                            </Button>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromRear}>
+                                Rear
+                            </Button>
+                            </div>
+                        </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-3 m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Delete element at Index
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={deletePositionHandler}
+                                value={deletePosition}
+                                type="number"
+                                min="0"
+                                max="100"
+                            />
+                            </span>
+                            <div className="flex flex-col gap-2 ml-2">
+                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromMiddle}>
+                                Middle
+                            </Button>
+                            </div>
+                        </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-3 m-2">
+                        <div className="flex w-full justify-between items-center">
+                            <span className="text-md font-medium flex items-center">
+                            Number to Search
+                            <input
+                                className="w-14 p-1 ml-2 text-center rounded-lg border-2 border-solid border-green-50 bg-black text-white"
+                                onChange={searchInputHandler}
+                                value={searchNumber}
+                                type="number"
+                                min="1"
+                                max="100"
+                            />
+                            </span>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={searchElement}>
+                            Search
+                            </Button>
+                        </div>
+                        </div>
+                    </>
+                    )}
+                </div>
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="absolute top-1/2 transform -translate-y-1/2 bg-white text-black p-2"
+                    style={{ right: isOpen ? '-1rem' : '-1rem' }}
+                >
+                    {isOpen ? <MdKeyboardDoubleArrowLeft /> : <MdKeyboardDoubleArrowRight />}
+                </button>
             </div>
-        </div>
-        </section>
+
+            <div className="flex flex-wrap  justify-center border-2 items-center flex-grow">
+                {defaultText && (
+                <span className=" flex items-center w-full h-full  justify-center text-2xl font-medium text-center text-white">
+                    Click an Operation to view the Linked List
+                </span>
+                )}
+                
+                <div className=" w-full h-full flex justify-center items-center">
+                    {noOfList.map((ele, i) => (
+                        <div key={ele.id} className="relative  scrollerLinklist m-5">
+                        { i < noOfList.length - 1 && <div
+                            style={{
+                            position: 'absolute',
+                            height: '2px',
+                            width: '80px', // Adjust width based on spacing between boxes mate 
+                            backgroundColor: 'white',
+                            top: '2.5rem',
+                            left: '6rem', // Adjust positioning to connect the line to the right side of the box for your own mate 
+                            transform: 'translateY(-50%)',
+                            }}
+                        >
+                        </div>
+                        }
+
+                        <div className="relative w-[122px] border-gray-400 border-4 p-1 rounded-md">
+                            {/* Non-animated vertical line */}
+                            <div
+                                className="absolute"
+                                style={{
+                                top: 0,
+                                bottom: 0,
+                                left: '4rem',
+                                borderLeft: '2px solid white',
+                                transform: 'translateX(-50%)',
+                                zIndex: 10, // Ensures the line is above the content
+                                }}
+                            ></div>
+
+                            {/* Animated box */}
+                                <div className={`${boxClassVariable} box box${ele.id} relative`}>
+                                    {ele.value.toString()}
+                                </div>
+                                {i === 0 && (
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-green-500 text-center">Head</div>
+                                )}
+                                {i === noOfList.length - 1 && (
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-red-500 text-center">Tail</div>
+                                )}
+                        </div>
+                            <div className="text-lg font-medium absolute left-8 text-center text-white">{i}</div>
+                    </div>
+                    ))}
+                </div>
+            </div>
+            </section>
 
 
-            <section className=' mt-8 bg-green-400 bg-opacity-70 p-4 flex justify-evenly'>
+            <section className=' mt-8 bg-green-600 bg-opacity-70 p-4 flex justify-evenly'>
                 <div className=" border-2 border-gray-400  bg-black text-white rounded-xl w-[500px] h-[500px] gap-4 m-3
                 shadow-[0_20px_50px_rgba(0,0,0,1)]
                 ">
