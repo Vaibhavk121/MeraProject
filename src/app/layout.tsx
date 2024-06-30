@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Righteous } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/nav-footer/Navbar";
 import { ParticalBg } from "@/components/BasicOparetion/ParticalBg";
 
 const inter = Righteous({
@@ -23,7 +22,6 @@ export default function RootLayout({
     <html lang="en">
       <ParticalBg />
       <body className={inter.className + " relative"}>
-        <Navbar/>
         {children}
       </body>
     </html>

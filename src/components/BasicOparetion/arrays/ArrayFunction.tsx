@@ -13,7 +13,9 @@ interface Array{
 }
 
 const boxClassVariable =
-  "flex h-14 w-14 items-center justify-center rounded-lg bg-rose-500 text-xl font-medium drop-shadow-lg ";
+  "flex h-14 w-14 items-center justify-center rounded-lg  text-xl font-medium drop-shadow-lg ";
+
+  const inputClass = "w-[5rem] h-[2.5rem] bg-transparent border rounded-md px-2"
 
 const welomeText = "Please Click Any Operation to view the Arrays"
 
@@ -30,7 +32,7 @@ export default function ArrayFunction() {
   const { contextSafe } = useGSAP({ scope: container });
   const [mainArray, setMainArray] = useState<Array[]>([]);
   const arrayLength = mainArray.length;
-  
+  let timeline = gsap.timeline()
 
   const createInputhander = (event: any) => {
     event.preventDefault();
@@ -126,7 +128,7 @@ export default function ArrayFunction() {
     
 
     const insertButtomAnimate = (id:string)=>{
-      let timeline = gsap.timeline()
+      
       for (let i = 0; i < Number(id); i++) {
         timeline.fromTo(
           `.box${i}`,
@@ -179,6 +181,21 @@ export default function ArrayFunction() {
           ease: "back.Out",
       });
     }, 10);
+    setTimeout(() => { 
+      gsap.fromTo(`.index${arrayLength}`, 
+        {
+       
+        opacity: 0,
+        duration: 0.3,
+        scale:0,
+      },{
+        
+        scale:1,
+          opacity: 1,
+          duration: 0.3,
+          delay: 0.1,
+      });
+    }, 10);
 
 
   });
@@ -186,8 +203,8 @@ export default function ArrayFunction() {
   const onCreateButton = contextSafe(() => {
     generateDefaultArray();
     setTimeout(() => {
-      gsap.fromTo(".box", {
-        y: -50,
+      timeline.fromTo(".box", {
+        y: 50,
         stagger: 0.2,
         scale: 0,
         visibility: 0,
@@ -202,6 +219,23 @@ export default function ArrayFunction() {
         duration: 1,
       });
     }, 10);
+    setTimeout(() => {
+      timeline.fromTo(".index", {
+        y: -20,
+        stagger: 0.2,
+        scale: 0,
+        visibility: 0,
+        ease: "back.inOut",
+        duration: 0.7,
+      },{
+        y: 0,
+        stagger: 0.2,
+        scale: 1,
+        visibility: 1,
+        ease: "back.inOut",
+        duration: 0.7,
+      });
+    }, 10);
   });
 
 
@@ -210,130 +244,102 @@ export default function ArrayFunction() {
     <>
       <section
         ref={container}
-        className="mx-10 flex grid-rows-2 flex-col items-center justify-center bg-white"
+        className="flex flex-col justify-center items-center h-[100vh] bg-black text-white "
       >
-        {defaultText && (
-          <span className="text-2xl font-medium">
-            {defaultText}
-          </span>
-        )}
-        <div className="flex" >
-          {mainArray.map((ele, i) => (
-            <div key={i}>
-              <div className="border-2 border-black p-1">
-                <div className={boxClassVariable + " box " + "box" + ele.id}>
-                  {ele.value}
-                </div>
+        <div className="w-[95%] flex h-[80vh] border-[2px] border-white rounded-lg">
+            <div className="w-[40%] h-full border-r-[2px] border-white rounded-r-lg flex flex-col items-center gap-5 p-5 justify-evenly">
+              <h5 className="text-2xl">Array operations</h5>
+              <div className="w-full flex gap-3 items-center ">
+                  <p>Create an array of size N = </p>
+                  <input
+                        className={inputClass}
+                  type="number"
+                  onChange={createInputhander}
+                  value={createNumber}
+                  />
+                <Button
+                  className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
+                  variant={"secondary"}
+                  onClick={onCreateButton}
+                  >
+                  Create
+                </Button>
               </div>
-                <div className="text-lg font-medium text-center">{i}</div>
+              <div className="w-full flex gap-3 items-center overflow-hidden">
+                  <p>Append </p>
+                  <input
+                  className={inputClass}
+                  type="number"
+                  onChange={appendInputhander}
+                  value={appendNumber}
+                />
+                <Button
+                className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
+                onClick={onAppendButton}
+                variant={"secondary"}
+                >
+                Append
+                </Button>
+              </div>
+              <div className="w-full flex gap-3 items-center">
+                  <p>Insert </p>
+                  <input
+                  className={inputClass}
+                  type="number"
+                  onChange={(e)=>setInsertNumber(e.target.value)}
+                  value={insertNumber}
+                  />
+                  <p>At index</p>
+                  <input
+                    className={inputClass}
+                    type="number"
+                    onChange={(e)=>setInsertNumberIndex(e.target.value)}
+                    value={insertNumberIndex}
+                  />
+                <Button
+                  className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
+                  onClick={insertToIndex}
+                  variant={"secondary"}
+                  >
+                  Insert
+                </Button>
+              </div>
+              <div className="w-full flex gap-3 items-center">
+                  <p>Delete element at index </p>
+                  <input
+                  className={inputClass}
+                  type="number"
+                  onChange={appendInputhander}
+                  value={appendNumber}
+                />
+                <Button
+                className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
+                onClick={onAppendButton}
+                variant={"secondary"}
+                >
+                Delete
+                </Button>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-      <section className="bg-orange-300 py-2">
-        <div className="flex justify-evenly">
-          <div className="flex flex-col items-center gap-3">
-            <Button
-              className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
-              onClick={onCreateButton}
-            >
-              Create
-            </Button>
-            <span className="text-sm w-[80%] font-medium">
-              To Create An Array Of Length{" "}
-              <input
-                className="w-10 p-1"
-                type="number"
-                onChange={createInputhander}
-                value={createNumber}
-              />{" "}
-              Numbers
-            </span>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <Button
-              className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
-              onClick={onAppendButton}
-            >
-              Append
-            </Button>
-            <span className="text-sm w-[80%] font-medium">
-              To Add an element to end of the array of {" "}
-              <input
-                className="w-10 p-1"
-                type="number"
-                onChange={appendInputhander}
-                value={appendNumber}
-              />{" "}
-              Numbers
-            </span>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <Button
-              className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
-              onClick={insertToIndex}
-            >
-              Insert
-            </Button>
-            <span className="text-sm w-[80%] font-medium">
-              To Insert New Value has {" "}
-              <input
-                className="w-12 p-1"
-                type="number"
-                onChange={(e)=>setInsertNumber(e.target.value)}
-                value={insertNumber}
-              />{" "}
-              To Index number {" "}
-              <input
-                className="w-10 p-1"
-                type="number"
-                onChange={(e)=>setInsertNumberIndex(e.target.value)}
-                value={insertNumberIndex}
-              />{" "}
-            </span>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <Button
-              className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
-              onClick={swapNumberByIndex}
-            >
-              Swap
-            </Button>
-            <span className="text-sm w-[80%] font-medium">
-              To Swap Two element by Index of {" "}
-              <input
-                className="w-12 p-1"
-                type="number"
-                onChange={(e)=>setSwapIndexSecond(e.target.value)}
-                value={swapIndexSecond}
-              />{" "}
-              And By Index of {" "}
-              <input
-                className="w-10 p-1"
-                type="number"
-                onChange={(e)=>setSwapIndexFirst(e.target.value)}
-                value={swapIndexFirst}
-              />{" "}
-            </span>
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            <Button
-              className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
-              onClick={onCreateButton}
-            >
-              Remove
-            </Button>
-            <span className="text-sm w-[80%] font-medium">
-              To Create An Array Of Length{" "}
-              <input
-                className="w-10 p-1"
-                type="number"
-                onChange={createInputhander}
-                value={createNumber}
-              />{" "}
-              Numbers
-            </span>
-          </div>
+            <div className="flex justify-center items-center w-full">
+              {defaultText && (
+                <span className="text-2xl font-medium">
+                  {defaultText}
+                </span>
+              )}
+              <div className="flex" >
+                {mainArray.map((ele, i) => (
+                  <div key={i}>
+                    <div className="border-2 border-white p-1 rounded-md">
+                      <div className={boxClassVariable + " box " + "box" + ele.id}>
+                        {ele.value}
+                      </div>
+                    </div>
+                      <div className={"text-lg font-medium text-center mt-2 index " + "index" + i}>{i}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
         </div>
       </section>
     </>

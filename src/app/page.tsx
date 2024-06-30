@@ -5,10 +5,13 @@ import Navbar from "@/components/nav-footer/Navbar";
 
 export default function Home() {
   return (
+    <>
+    <Navbar/>
     <main>
       <Herosection />
       <AboutSection />
       <Visualizesection />
     </main>
+    </>
   );
 }
