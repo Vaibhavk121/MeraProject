@@ -23,7 +23,7 @@ export default function Hero() {
         <Link href="/stacks" className={linkButtonClass}>
           <p>Stack</p> <GoArrowUpRight size={"3rem"} className="ml-24" />
         </Link>
-        <Link href="#" className={linkButtonClass}>
+        <Link href="/queue" className={linkButtonClass}>
           <p>Queue</p> <GoArrowUpRight size={"3rem"} className="ml-24" />
         </Link>
         <Link href="/linkedList" className={linkButtonClass}>
