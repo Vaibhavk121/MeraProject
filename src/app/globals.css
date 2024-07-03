@@ -94,7 +94,7 @@
       text-align: justify;
     }
     .about_picture{
-      
+      margin-top: -80px;
     }
   }
   .about_content_button{
@@ -108,5 +108,8 @@
     background-color: #00AD6F;
     overflow-x: hidden;
   }
-
+  .footer_container{
+    height: 22.5vh;
+    background-color: #008151;
+  }
 
