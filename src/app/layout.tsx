@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Righteous } from "next/font/google";
 import "./globals.css";
 import { ParticalBg } from "@/components/BasicOparetion/ParticalBg";
+import Footer from "@/components/nav-footer/Footer";
 
 const inter = Righteous({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <ParticalBg />
       <body className={inter.className + " relative"}>
         {children}
+        <Footer />
       </body>
     </html>
   );
