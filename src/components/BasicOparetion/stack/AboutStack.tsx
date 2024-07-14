@@ -5,7 +5,7 @@ import MedCube from '@/components/objects/MedCube';
 import Link from 'next/link';
 import { FaAngleLeft, FaAngleRight, FaAnglesDown } from 'react-icons/fa6';
 
-const AboutLinkedlist = () => {
+const AboutStack = () => {
 
     const handleScroll = () => {
         if (targetSectionRef.current) {
@@ -22,9 +22,9 @@ const AboutLinkedlist = () => {
   return (
     <>
       <section className="relative flex h-[85vh] flex-col items-center justify-around overflow-hidden text-white">
-        <h1 className="p-10 text-6xl">Linked List</h1>
+        <h1 className="p-8 text-6xl">Stack</h1>
         <p className="w-[60%] text-center text-2xl">
-        A linked list is a dynamic data structure where each element (node) contains data and a pointer to the next node, allowing efficient insertions and deletions but requiring sequential access. Types include singly, doubly, and circular linked lists.
+        A stack in data structures follows the Last-In-First-Out (LIFO) principle. The Last element added is the first to be removed. Stacks are used as Call Stacks for Funtions and Browsers .
         </p>
         <Button variant={"secondary"} className="text-lg m-2"
         onClick={handleScroll}
@@ -97,7 +97,7 @@ const AboutLinkedlist = () => {
         />
         <div className="absolute bottom-0 flex w-full justify-between text-3xl font-thin text-black">
         <Link
-            href="/queue"
+            href="/arrays"
             className={linkButtonClass}
             onMouseEnter={() => setIsHoverLeft(true)}
             onMouseLeave={() => setIsHoverLeft(false)}
@@ -108,13 +108,13 @@ const AboutLinkedlist = () => {
                 `${isHoverLeft ? "translate-y-0" : "translate-y-[3rem]"} `
               }
             >
-              <FaAngleLeft size={"2rem"} /> <p>Queue</p>
+              <FaAngleLeft size={"2rem"} /> <p>Array</p>
             </div>
           </Link>
 
 
           <Link
-            href="/arrays"
+            href="/queue"
             className={linkButtonClass}
             onMouseEnter={() => setIsHoverRight(true)}
             onMouseLeave={() => setIsHoverRight(false)}
@@ -125,7 +125,7 @@ const AboutLinkedlist = () => {
                 `${isHoverRight ? "translate-y-0" : "translate-y-[3rem]"} `
               }
             >
-              <p>Array</p> <FaAngleRight size={"2rem"} />
+              <p>Queue</p> <FaAngleRight size={"2rem"} />
             </div>
           </Link>
         </div>
@@ -139,6 +139,6 @@ const AboutLinkedlist = () => {
   )
 }
 
-export default AboutLinkedlist
+export default AboutStack
 
 

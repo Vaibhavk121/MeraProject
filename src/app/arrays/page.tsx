@@ -11,10 +11,10 @@ export default function page() {
         <SubHero
           title={"Arrays"}
           content={content}
-          leftLink="stacks"
-          leftTitle="Stack"
-          rightLink="linkedList"
-          rightTitle="Linked List"
+          leftLink="linkedList"
+          leftTitle="Linked List"
+          rightLink="stacks"
+          rightTitle="Stack"
         />
         <ArrayFunction/>
       </main>

@@ -109,4 +109,17 @@
     background-color: #00AD6F;
     overflow-x: hidden;
   }
+  .stack_visualise{
+    height: 70vh;
+    margin: 80px auto 40px auto;
+  }
+  .stack_input_box{
+    height: 100%;
+  }
+  .stack_visualization_section{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
