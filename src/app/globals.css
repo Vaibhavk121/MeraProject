@@ -122,4 +122,9 @@
     justify-content: center;
     align-items: center;
   }
-
+  .stack_box{
+    display: flex;
+    flex-direction: column-reverse; /* Stack items from bottom to top */
+    align-items: center;
+    justify-content: flex-start;
+  }
