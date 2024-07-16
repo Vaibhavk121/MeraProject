@@ -68,7 +68,7 @@ const StackOperation = () => {
                 <div className='stack_visualization_section w-3/5 border-2 border-l-white'>
                     <div className='stack_box text-white' ref={stackBoxRef}>
                         {items.map((data, index) => (
-                            <div className=' p-2 border-2 border-white'>
+                            <div className=' p-2 border-2 border-white' key={index}>
                                 <p className='stack_block bg py-3 px-5 rounded w-max' key={index}>
                                     <b>{data}</b>
                                 </p>
