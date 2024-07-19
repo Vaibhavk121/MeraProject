@@ -1,23 +1,5 @@
-import ArrayFunction from "@/components/BasicOparetion/arrays/ArrayFunction";
-import SubHero from "@/components/SubHero";
-import { Button } from "@/components/ui/button";
+import PageContainer from "../../components/BasicOparetion/arrays/PageContainer";
 
 export default function page() {
-  const content =
-    "Arrays are fundamental to virtually every programming language and application. They Provide a simple yet powerful way to store and manipulate data.";
-  return (
-    <>
-      <main className="">
-        <SubHero
-          title={"Arrays"}
-          content={content}
-          leftLink="linkedList"
-          leftTitle="Linked List"
-          rightLink="stacks"
-          rightTitle="Stack"
-        />
-        <ArrayFunction/>
-      </main>
-    </>
-  );
+  return <PageContainer />;
 }
