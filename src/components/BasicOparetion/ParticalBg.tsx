@@ -31,7 +31,7 @@ export const ParticalBg = () => {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+    // console.log(container);
   };
 
   const options: ISourceOptions = useMemo(
@@ -81,7 +81,7 @@ export const ParticalBg = () => {
             default: OutMode.out,
           },
           random: false,
-          speed: 6,
+          speed: 4,
           straight: false,
         },
         number: {

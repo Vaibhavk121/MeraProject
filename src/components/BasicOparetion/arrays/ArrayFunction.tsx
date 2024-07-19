@@ -28,9 +28,11 @@ export const ArrayFunction = forwardRef((props, ref) => {
   const [swapIndexSecond, setSwapIndexSecond] = useState("3");
   const [insertNumberIndex, setInsertNumberIndex] = useState("4");
   const [insertNumber, setInsertNumber] = useState("24");
-  const [deleteNumberIndex, setDeleteNumberIndex] = useState("6");
+  const [deleteNumberIndex, setDeleteNumberIndex] = useState("4");
   const [createNumber, setCreateNumber] = useState(5);
   const [appendNumber, setAppendNumber] = useState(6);
+  const [elementNotFound, setElementNotFound] = useState(false)
+  const [elementScanner, setElementScanner] = useState(false)
   const [defaultText, setDefaultText] = useState<boolean | string>(welomeText);
   const container = useRef<HTMLDivElement>(null);
   const { contextSafe } = useGSAP({ scope: container });
@@ -78,7 +80,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
       Number(insertNumberIndex) < 0 ||
       Number(insertNumberIndex) > mainArray.length
     ) {
-      setDefaultText("Please enter a valid index number");
+      setDefaultText("Please Enter a Valid Index Number");
       return;
     }
     let lastInx = arrayLength;
@@ -139,7 +141,48 @@ export const ArrayFunction = forwardRef((props, ref) => {
 
 
   const onDeleteHandler = () => {
+    setElementScanner(true)
+    let move = 0;
+    let num = +deleteNumberIndex
+    let index:number = mainArray.findIndex((item:Array) => item.value === num);
+    
+    for(let i = 0; i < arrayLength; i++) {
+      setTimeout(() => {
+        timeline.fromTo(
+          `.scan`,
+          { x:move, duration: 1, ease: "back.out"},
+          {  x:move+70,duration: 1, ease: "back.out"}
+          )
+            move += 70;
+          }, 100);
+        if (mainArray[i].value === num) {
+          break;
+        }
+      }
+      
 
+    setTimeout(() => {
+      timeline.fromTo(`.box${index}`,
+        {y:0, duration:1, ease: "back.out"},
+        {y:100,opacity:0,duration:1,ease:"back.inOut"}
+      )
+      timeline.fromTo(`.scan`,
+        {y:0, duration:1, ease: "back.out"},
+        {y:50,opacity:0,duration:1,ease:"back.inOut"}
+      )
+    }, index * 1000);
+
+    setTimeout(() => {
+      for(let i = index; i < arrayLength; i++){
+        timeline.fromTo(`.box${i}`,
+          {x:70,y:0,opacity:1},
+          {x:0,y:0,opacity:1}
+        )
+      }
+      const newArray = mainArray.filter((val,i) => val.value != num)
+      setMainArray(newArray)
+      setElementScanner(false)
+    }, index * 2000);
   }
 
 
@@ -361,7 +404,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
               </Button>
             </div>
             <div className="w-full flex gap-3 items-center">
-              <p>Delete element at index </p>
+              <p>Delete element number </p>
               <input
                 className={inputClass}
                 type="number"
@@ -370,20 +413,21 @@ export const ArrayFunction = forwardRef((props, ref) => {
               />
               <Button
                 className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
-                onClick={onAppendButton}
+                onClick={onDeleteHandler}
                 variant={"secondary"}
               >
                 Delete
               </Button>
             </div>
           </div>
-          <div className="flex justify-center items-center w-full overflow-hidden corn">
+          <div className="flex relative justify-center items-center w-full overflow-hidden corn">
             {defaultText && (
               <span className="text-2xl font-medium">
                 {defaultText}
               </span>
             )}
-            <div className="flex arrayContainer">
+            {elementScanner && <div className="scan border-2 border-white p-1 rounded-md w-[5rem] mb-[2rem] h-[5rem]"></div>}
+            {!defaultText && <div className="flex arrayContainer">
               {mainArray.map((ele, i) => (
                 <div key={i}>
                   <div className="border-2 border-white p-1 rounded-md ">
@@ -396,7 +440,8 @@ export const ArrayFunction = forwardRef((props, ref) => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div>}
+            {elementNotFound && <span className="absolute bottom-10 ">Element not found</span>}
           </div>
         </div>
       </section>

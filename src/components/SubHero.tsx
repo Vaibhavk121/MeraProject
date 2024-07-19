@@ -35,7 +35,7 @@ export default function SubHero({
 
 
 
-  const scrollToBox = () => {
+const scrollToBox = () => {
     const boxElement = document.querySelector(".corn");
     const boxRect = boxElement?.getBoundingClientRect();
     if (boxRect) {
