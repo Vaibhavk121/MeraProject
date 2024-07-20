@@ -142,25 +142,58 @@ export const ArrayFunction = forwardRef((props, ref) => {
 
   const onDeleteHandler = () => {
     setElementScanner(true)
+    let scannerLength = 70;
+  if(arrayLength >= 15){
+    scannerLength = 68
+  }
     let move = 0;
     let num = +deleteNumberIndex
     let index:number = mainArray.findIndex((item:Array) => item.value === num);
-    
-    for(let i = 0; i < arrayLength; i++) {
+    if(index === -1) {
+      for(let i = 0; i < arrayLength; i++) {
+        setTimeout(() => {
+          timeline.fromTo(
+            `.scan`,
+            { x:move, duration: 1, ease: "back.out"},
+            {  x:move+scannerLength,duration: 1, ease: "back.out"}
+            )
+              move += scannerLength;
+            }, 100);
+        }
+        setTimeout(()=>{
+          setElementNotFound(true)
+        },arrayLength * 1000)
+
+        setTimeout(()=>{
+          timeline.fromTo(`.scan`,
+            {y:0, duration:1, ease: "back.out"},
+            {y:50,opacity:0,duration:1,ease:"back.inOut"}
+          )
+        },arrayLength * 1200)
+        
+        setTimeout(()=>{
+          setElementScanner(false)
+          setElementNotFound(false)
+        },arrayLength * 1500)
+        
+
+
+    }else{
+      for(let i = 0; i < arrayLength; i++) {
       setTimeout(() => {
         timeline.fromTo(
           `.scan`,
           { x:move, duration: 1, ease: "back.out"},
-          {  x:move+70,duration: 1, ease: "back.out"}
+          {  x:move+scannerLength,duration: 1, ease: "back.out"}
           )
-            move += 70;
+          move += scannerLength;
           }, 100);
         if (mainArray[i].value === num) {
           break;
         }
       }
       
-
+      
     setTimeout(() => {
       timeline.fromTo(`.box${index}`,
         {y:0, duration:1, ease: "back.out"},
@@ -182,9 +215,10 @@ export const ArrayFunction = forwardRef((props, ref) => {
       const newArray = mainArray.filter((val,i) => val.value != num)
       setMainArray(newArray)
       setElementScanner(false)
-    }, index * 2000);
+    }, index * 1500);
   }
-
+}
+  
 
 
   const insertButtomAnimate = (id: string) => {
@@ -337,6 +371,17 @@ export const ArrayFunction = forwardRef((props, ref) => {
         }
       );
     }, 10);
+    // setTimeout(() => {
+    //   gsap.fromTo(
+    //     `.scan`,
+    //     {
+    //       scale: scalelength
+    //     },
+    //     {
+    //       scale: scalelength
+    //     }
+    //   );
+    // }, 10);
   }, [arrayLength]);
 
   return (
@@ -426,8 +471,8 @@ export const ArrayFunction = forwardRef((props, ref) => {
                 {defaultText}
               </span>
             )}
-            {elementScanner && <div className="scan border-2 border-white p-1 rounded-md w-[5rem] mb-[2rem] h-[5rem]"></div>}
-            {!defaultText && <div className="flex arrayContainer">
+            {!defaultText && <div className="flex arrayContainer items-center">
+            {elementScanner && <div className="scan border-2 border-white p-1 rounded-md w-[5rem] mb-[2rem] h-[5rem] "></div>}
               {mainArray.map((ele, i) => (
                 <div key={i}>
                   <div className="border-2 border-white p-1 rounded-md ">
