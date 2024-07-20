@@ -1,14 +1,5 @@
-.Linkedlist{
-    position: absolute;
-    left: 16vh;
-    top: 1vh;
-    color: white;
-    width: 100px;
-     height: 60px ;
-}
-
-.HorizontalScroller {
-    box-shadow: 0 10px 20px rgba(240, 46, 170, 0.7);
+.QueueScroll {
+    box-shadow: 0 20px 50px rgba(8,112,184,0.7);
     overflow-x: auto;
     overflow-y: hidden; /* Prevent vertical scrolling */
     height: 400px;
@@ -23,16 +14,11 @@
     border: 2px solid white;
 }
 
-.HorizontalScroller::-webkit-scrollbar {
+.QueueScroll::-webkit-scrollbar {
     display: none; /* Adjust the height of the scrollbar */
 }
 
 
-.HorizontalScroller::-webkit-scrollbar-thumb {
+.QueueScroll::-webkit-scrollbar-thumb {
     background: transparent; /* Thumb color of the scrollbar */
 }
-
-
-
-
-  
