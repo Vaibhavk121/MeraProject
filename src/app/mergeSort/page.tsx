@@ -1,5 +1,5 @@
-import AboutPage from '@/components/sort/mergeSort/AboutPage'
-import AnimationLayout from '@/components/sort/mergeSort/AnimationLayout'
+import AboutPage from '@/components/Sorting/mergeSort/AboutPage'
+import AnimationLayout from '@/components/Sorting/mergeSort/AnimationLayout'
 import SubHero from '@/components/SubHero'
 import React from 'react'
 

@@ -340,17 +340,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
         }
       );
     }, 10);
-    // setTimeout(() => {
-    //   gsap.fromTo(
-    //     `.scan`,
-    //     {
-    //       scale: scalelength
-    //     },
-    //     {
-    //       scale: scalelength
-    //     }
-    //   );
-    // }, 10);
+    
   }, [arrayLength]);
 
   return (

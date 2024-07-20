@@ -19,7 +19,9 @@ export default function AnimationLayout() {
     const [createNumber, setCreateNumber] = useState(5);
     const { contextSafe } = useGSAP({ scope: container });
   const [mainArray, setMainArray] = useState<Array[]>([]);
+  const [dividedArray,setDividedArray] = useState<Array[]>([])
   const [defaultText, setDefaultText] = useState<boolean | string>(welomeText);
+  
   const arrayLength = mainArray.length;
   let timeline = gsap.timeline();
 
