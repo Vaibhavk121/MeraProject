@@ -272,7 +272,7 @@ const LinkListFunction = () => {
             <p className=' flex justify-center items-center text-xl text-white p-5 '>Linked List</p>
             <section
             ref={container}
-            className=" shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]
+            className=" HorizontalScroller
             h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
             >
                 <div className="relative flex">

@@ -114,7 +114,7 @@ const AboutLinkedlist = () => {
 
 
           <Link
-            href="/arrays"
+            href="/bubblesort"
             className={linkButtonClass}
             onMouseEnter={() => setIsHoverRight(true)}
             onMouseLeave={() => setIsHoverRight(false)}
@@ -125,7 +125,7 @@ const AboutLinkedlist = () => {
                 `${isHoverRight ? "translate-y-0" : "translate-y-[3rem]"} `
               }
             >
-              <p>Array</p> <FaAngleRight size={"2rem"} />
+              <p>Bubble Sort</p> <FaAngleRight size={"2rem"} />
             </div>
           </Link>
         </div>
