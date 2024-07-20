@@ -10,8 +10,8 @@ export default function Navbar() {
 
   
   return (
-    <section className="flex w-full justify-center min-h-[15vh] items-center bg-black text-white overflow-hidden ">
-      <div className="flex h-max w-[35%] justify-center rounded-full border-2 border-green-400 text-5xl">
+    <nav className="flex w-full justify-center min-h-[15vh] items-center bg-black text-white overflow-hidden ">
+      <div className="flex h-max w-[25%] justify-center rounded-full border-2 border-green-400 text-5xl">
         <Link
           href="/"
           className={
@@ -21,9 +21,9 @@ export default function Navbar() {
           Home
         </Link>
         <Link
-          href="/sketch"
+          href="/visualize"
           className={
-            `${pathname === "/sketch" ? activeClass : ""} ` + basicButtonClass
+            `${pathname === "/visualize" ? activeClass : ""} ` + basicButtonClass
           }
         >
           Visualize
@@ -37,6 +37,6 @@ export default function Navbar() {
           About Us
         </Link>
       </div>
-    </section>
+    </nav>
   );
 }
