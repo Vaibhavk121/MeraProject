@@ -24,8 +24,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
 
   const welomeText = `Please Click Any Operation to view the Arrays`;
 
-  const [swapIndexFirst, setSwapIndexFirst] = useState("1");
-  const [swapIndexSecond, setSwapIndexSecond] = useState("3");
+
   const [insertNumberIndex, setInsertNumberIndex] = useState("4");
   const [insertNumber, setInsertNumber] = useState("24");
   const [deleteNumberIndex, setDeleteNumberIndex] = useState("4");
@@ -106,37 +105,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
     insertButtomAnimate(insertNumberIndex);
   };
 
-  const swapNumberByIndex = () => {
-    let timeline = gsap.timeline();
-    if (
-      !swapIndexFirst ||
-      !swapIndexSecond ||
-      Number(swapIndexFirst) < 0 ||
-      Number(swapIndexSecond) < 0 ||
-      Number(swapIndexFirst) > mainArray.length ||
-      Number(swapIndexSecond) > mainArray.length
-    ) {
-      setDefaultText("Please enter a valid index number");
-      return;
-    }
 
-    let newArray = [...mainArray]; // copy of the mainArray
-    let temp = newArray[Number(swapIndexFirst)];
-    newArray[Number(swapIndexFirst)] = newArray[Number(swapIndexSecond)];
-    newArray[Number(swapIndexSecond)] = temp;
-
-    if (swapIndexFirst < swapIndexSecond) {
-      gsap.fromTo(
-        `.box${swapIndexFirst}`,
-        { y: 0, duration: 1, ease: "back.out" },
-        { y: -50, duration: 1, ease: "back.out" }
-      );
-      setMainArray(newArray);
-    }
-    if (swapIndexFirst > swapIndexSecond) {}
-
-    setMainArray(newArray);
-  };
 
 
 

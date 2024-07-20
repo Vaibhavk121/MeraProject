@@ -8,9 +8,10 @@ import { LuGithub } from "react-icons/lu";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 export default function page() {
   return (
-    <main className="flex flex-col items-center justify-center gap-20 text-white">
+    <main className="flex flex-col  items-center justify-center gap-20 text-white">
+      <div className="max-w-[1280px]">
       <SubNavbar />
-      <article className="flex w-[90%] flex-col gap-10">
+      <article className="flex  flex-col gap-10">
         <h1 className="text-5xl">About Us</h1>
         <div className="flex gap-20 max-lg:flex-col">
           <div className="flex w-1/2 max-lg:w-full flex-col gap-5 text-2xl">
@@ -33,11 +34,11 @@ export default function page() {
               src={homePageImg}
               alt="home page"
               className="h-full w-full"
-            />
+              />
           </figure>
         </div>
       </article>
-      <section className="mb-20 flex w-[90%] flex-col gap-10">
+      <section className="mb-20 flex  flex-col gap-10">
         <h2 className="text-4xl">Team</h2>
         <div className="flex flex-wrap justify-between gap-10">
           <div className="flex w-[48%] flex-col gap-5 rounded-2xl border border-white p-5 max-lg:w-[45%] max-md:w-full">
@@ -68,7 +69,7 @@ export default function page() {
               </ul>
             </div>
           </div>
-          <div className="flex w-[48%] flex-col gap-5 rounded-2xl border border-white p-5 max-lg:w-[45%] max-md:w-full">
+          <div className="flex w-[48%] flex-col gap-5 justify-between rounded-2xl border border-white p-5 max-lg:w-[45%] max-md:w-full">
             <p className="text-3xl">Thomas Antony S</p>
             <p className="text-xl">
               👋 I&lsquo;m a BE CSE student in my pre-final year. I constantly
@@ -94,7 +95,7 @@ export default function page() {
               </ul>
             </div>
           </div>
-          <div className="flex w-[48%] flex-col gap-5 rounded-2xl border border-white p-5 max-lg:w-[45%] max-md:w-full">
+          <div className="flex w-[48%] flex-col gap-5 justify-between rounded-2xl border border-white p-5 max-lg:w-[45%] max-md:w-full">
             <p className="text-3xl">Vikas Thapa</p>
             <p className="text-xl">
               👋 Hello, I&lsquo;m Vikas B , a motivated third-year engineering
@@ -150,6 +151,7 @@ export default function page() {
           </div>
         </div>
       </section>
+              </div>
     </main>
   );
 }

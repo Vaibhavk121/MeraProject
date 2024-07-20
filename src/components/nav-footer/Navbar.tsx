@@ -11,7 +11,7 @@ export default function Navbar() {
   
   return (
     <nav className="flex w-full justify-center min-h-[15vh] items-center bg-black text-white overflow-hidden ">
-      <div className="flex h-max w-[25%] justify-center rounded-full border-2 border-green-400 text-5xl">
+      <div className="flex h-max justify-center rounded-full border-2 border-green-400 text-5xl">
         <Link
           href="/"
           className={
