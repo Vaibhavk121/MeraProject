@@ -7,6 +7,7 @@ import './LinkedListFunction.css'
 import { CgArrowLongRightC } from "react-icons/cg";
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
 
+
 // Defining the ListItem interface
 interface ListItem {
   id: number;
@@ -273,7 +274,7 @@ const LinkListFunction = () => {
             <section
             ref={container}
             className=" HorizontalScroller
-            h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
+            h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white my-20"
             >
                 <div className="relative flex">
                 <div className={`border-white border-r-2 border-solid bg-black text-white rounded-sm transition-all duration-300 ${isOpen ? 'w-96' : 'w-0 overflow-hidden'}`}>
@@ -496,20 +497,6 @@ const LinkListFunction = () => {
                     ))}
                 </div>
             </div>
-            </section>
-
-
-            <section className=' mt-8 bg-green-600 bg-opacity-70 p-4 flex justify-evenly'>
-                <div className=" border-2 border-gray-400  bg-black text-white rounded-xl w-[500px] h-[500px] gap-4 m-3
-                shadow-[0_20px_50px_rgba(0,0,0,1)]
-                ">
-                    <p className=' border-y-2 border-white p-2 flex justify-center text-2xl '>Code</p>
-                </div>
-                <div className=" bg-black border-2 border-gray-400 text-white rounded-xl w-[500px] h-[500px] gap-4 m-3
-                shadow-[0_20px_50px_rgba(0,0,0,1)]
-                ">
-                    <p className=' border-y-2 border-white p-2 flex justify-center text-2xl '>Logger</p>
-                </div>
             </section>
                     
         </>

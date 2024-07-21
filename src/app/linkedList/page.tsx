@@ -1,12 +1,12 @@
 import AboutLinklist from '@/components/BasicOparetion/LinkList/AboutLinkedlist'
 import LinkListFunction from '@/components/BasicOparetion/LinkList/LinkListFunction'
-import Navbar from '@/components/nav-footer/Navbar'
+import SubNavbar from '@/components/nav-footer/SubNavbar'
 import React from 'react'
 
 const page = () => {
   return (
     <main>
-      <Navbar/>
+      <SubNavbar/>
       <AboutLinklist/>
       <LinkListFunction/>
     </main>

@@ -104,8 +104,7 @@ const AboutLinkedlist = () => {
           >
             <div
               className={
-                "flex items-center duration-100 " +
-                `${isHoverLeft ? "translate-y-0" : "translate-y-[3rem]"} `
+                "flex items-center duration-100 " 
               }
             >
               <FaAngleLeft size={"2rem"} /> <p>Queue</p>
@@ -121,8 +120,7 @@ const AboutLinkedlist = () => {
           >
             <div
               className={
-                "flex items-center duration-100 w-[340px] justify-center " +
-                `${isHoverRight ? "translate-y-0" : "translate-y-[3rem]"} `
+                "flex items-center duration-100 w-[340px] justify-center " 
               }
             >
               <p>Bubble Sort</p> <FaAngleRight size={"2rem"} />

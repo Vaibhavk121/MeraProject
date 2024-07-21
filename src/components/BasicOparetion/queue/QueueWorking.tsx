@@ -178,7 +178,7 @@ const LinkListFunction = () => {
       </p>
       <section
         ref={container}
-        className="mx-4 flex h-[400px] justify-between rounded-lg border-2 border-solid border-white bg-black md:mx-8"
+        className="mx-4 flex h-[400px] justify-between rounded-lg border-2 border-solid border-white bg-black md:mx-8 my-20"
       >
         <div className="relative flex w-[30%]">
           <div
@@ -298,18 +298,6 @@ const LinkListFunction = () => {
         </div>
       </section>
 
-      <section className="mt-8 flex justify-evenly bg-green-600 bg-opacity-70 p-4">
-        <div className="m-3 h-[500px] w-[500px] gap-4 rounded-xl border-2 border-gray-400 bg-black text-white shadow-[0_20px_50px_rgba(0,0,0,1)]">
-          <p className="flex justify-center border-y-2 border-white p-2 text-2xl">
-            Code
-          </p>
-        </div>
-        <div className="m-3 h-[500px] w-[500px] gap-4 rounded-xl border-2 border-gray-400 bg-black text-white shadow-[0_20px_50px_rgba(0,0,0,1)]">
-          <p className="flex justify-center border-y-2 border-white p-2 text-2xl">
-            Logger
-          </p>
-        </div>
-      </section>
     </>
   );
 };
