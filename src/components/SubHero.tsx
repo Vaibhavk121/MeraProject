@@ -140,8 +140,7 @@ const scrollToBox = () => {
           >
             <div
               className={
-                "flex items-center duration-100 " +
-                `${isHoverLeft ? "translate-y-0" : "translate-y-[3rem]"} `
+                "flex items-center duration-100 " 
               }
             >
               <FaAngleLeft size={"2rem"} /> <p>{leftTitle}</p>
@@ -156,8 +155,7 @@ const scrollToBox = () => {
           >
             <div
               className={
-                "flex items-center duration-100 " +
-                `${isHoverRight ? "translate-y-0" : "translate-y-[3rem]"} `
+                "flex items-center duration-100 " 
               }
             >
               <p>{rightTitle}</p> <FaAngleRight size={"2rem"} />
