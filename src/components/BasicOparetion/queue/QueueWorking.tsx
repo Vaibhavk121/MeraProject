@@ -154,7 +154,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2" onClick={generateDefaultList}>
+                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2 mt-7" 
+                             variant={"secondary"}
+                            onClick={generateDefaultList}>
                             Create
                             </Button>
                         </div>
@@ -172,7 +174,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={enqueue}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2 mt-7" 
+                             variant={"secondary"}
+                            onClick={enqueue}>
                            Enqueue
                             </Button>
                         </div>
@@ -182,7 +186,9 @@ const LinkListFunction = () => {
                             <span className="text-md font-medium flex items-center">
                             Delete from Queue
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={dequeue}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2 mt-7" 
+                             variant={"secondary"}
+                            onClick={dequeue}>
                            Dequeue
                             </Button>
                         </div>

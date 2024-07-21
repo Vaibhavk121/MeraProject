@@ -5,7 +5,7 @@ import MedCube from '@/components/objects/MedCube';
 import Link from 'next/link';
 import { FaAngleLeft, FaAngleRight, FaAnglesDown } from 'react-icons/fa6';
 
-const AboutBubble = () => {
+const AboutSelection = () => {
 
     const handleScroll = () => {
         if (targetSectionRef.current) {
@@ -22,9 +22,9 @@ const AboutBubble = () => {
   return (
     <>
     <section className="relative flex h-[85vh] flex-col items-center justify-around overflow-hidden text-white">
-      <h1 className="p-10 text-6xl">Bubble Sort</h1>
+      <h1 className="p-10 text-6xl">Selection Sort</h1>
       <p className="w-[60%] text-center text-2xl">
-      Bubble sort is a basic sorting algorithm that repeatedly compares and swaps adjacent elements until the list is sorted. Although easy to implement, it is inefficient for large datasets with a time complexity of O(n^2). It is stable, meaning it preserves the order of equal elements.
+      Selection sort repeatedly finds the smallest element from an unsorted list and moves it to the beginning. It maintains sorted and unsorted subarrays, progressively sorting the list. Although simple, it is inefficient for large lists with a time complexity of O(n²).
       </p>
       <Button variant={"secondary"} className="text-lg m-2"
       onClick={handleScroll}
@@ -97,7 +97,7 @@ const AboutBubble = () => {
       />
       <div className="absolute bottom-0 flex w-full justify-between text-3xl font-thin text-black">
       <Link
-          href="/linkedList"
+          href="/bubblesort"
           className={linkButtonClass}
           onMouseEnter={() => setIsHoverLeft(true)}
           onMouseLeave={() => setIsHoverLeft(false)}
@@ -108,13 +108,13 @@ const AboutBubble = () => {
               `${isHoverLeft ? "translate-y-0" : "translate-y-[3rem]"} `
             }
           >
-            <FaAngleLeft size={"2rem"} /> <p>Linked List</p>
+            <FaAngleLeft size={"2rem"} /> <p>Bubble Sort</p>
           </div>
         </Link>
 
 
         <Link
-          href="/selectionsort"
+          href="/mergeSort"
           className={linkButtonClass}
           onMouseEnter={() => setIsHoverRight(true)}
           onMouseLeave={() => setIsHoverRight(false)}
@@ -125,7 +125,7 @@ const AboutBubble = () => {
               `${isHoverRight ? "translate-y-0" : "translate-y-[3rem]"} `
             }
           >
-            <p>Selection Sort </p> <FaAngleRight size={"2rem"} />
+            <p>Merge Sort </p> <FaAngleRight size={"2rem"} />
           </div>
         </Link>
       </div>
@@ -139,4 +139,4 @@ const AboutBubble = () => {
   )
 }
 
-export default AboutBubble
+export default AboutSelection
