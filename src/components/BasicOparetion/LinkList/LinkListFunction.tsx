@@ -293,7 +293,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2" onClick={generateDefaultList}>
+                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2"
+                             variant={"secondary"}
+                            onClick={generateDefaultList}>
                             Create
                             </Button>
                         </div>
@@ -311,7 +313,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElementFirst}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2"
+                             variant={"secondary"}
+                            onClick={appendOneElementFirst}>
                             front
                             </Button>
                         </div>
@@ -329,7 +333,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElement}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2"
+                             variant={"secondary"}
+                            onClick={appendOneElement}>
                             rear
                             </Button>
                         </div>
@@ -356,7 +362,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={insertOneElement}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2"
+                             variant={"secondary"}
+                            onClick={insertOneElement}>
                             middle
                             </Button>
                         </div>
@@ -367,10 +375,14 @@ const LinkListFunction = () => {
                             Delete element at =
                             </span>
                             <div className="flex gap-2 ml-2">
-                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromFront}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2" 
+                             variant={"secondary"}
+                            onClick={deleteFromFront}>
                                 Front
                             </Button>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromRear}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2" 
+                             variant={"secondary"}
+                            onClick={deleteFromRear}>
                                 Rear
                             </Button>
                             </div>
@@ -390,7 +402,9 @@ const LinkListFunction = () => {
                             />
                             </span>
                             <div className="flex flex-col gap-2 ml-2">
-                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromMiddle}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2" 
+                             variant={"secondary"}
+                            onClick={deleteFromMiddle}>
                                 Middle
                             </Button>
                             </div>
@@ -409,7 +423,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={searchElement}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" 
+                             variant={"secondary"}
+                            onClick={searchElement}>
                             Search
                             </Button>
                         </div>

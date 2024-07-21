@@ -1,0 +1,36 @@
+.SelectionScroll {
+    box-shadow: 0 20px 50px rgba(107, 158, 228, 0.7);
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    height: 400px;
+    margin-left: 1rem; /* Corresponds to mx-4 */
+    margin-right: 1rem; /* Corresponds to mx-4 */
+    margin-left: 2rem; /* Corresponds to md:mx-8 */
+    margin-right: 2rem; /* Corresponds to md:mx-8 */
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.5rem; /* Adjust to match the rounding you want */
+    background-color: black;
+    border: 2px solid white;
+}
+
+.SelectionScroll::-webkit-scrollbar {
+    display: none; /* Adjust the height of the scrollbar */
+}
+
+
+.SelectionScroll::-webkit-scrollbar-thumb {
+    background: transparent; /* Thumb color of the scrollbar */
+}
+
+.SelectionScroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.box {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
