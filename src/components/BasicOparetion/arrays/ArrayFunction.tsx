@@ -236,14 +236,14 @@ export const ArrayFunction = forwardRef((props, ref) => {
           x: 100,
           visibility: 0,
           ease: "back.Out",
-          duration: 1,
+          duration: 0.5,
           delay: 0.1
         },
         {
           x: 0,
           scale: 1,
           visibility: 1,
-          duration: 1,
+          duration: 0.5,
           ease: "back.Out"
         }
       );
@@ -277,7 +277,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
           scale: 0,
           visibility: 0,
           ease: "back.inOut",
-          duration: 1
+          duration: 0.5
         },
         {
           y: 0,
@@ -285,7 +285,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
           scale: 1,
           visibility: 1,
           ease: "back.inOut",
-          duration: 1
+          duration: 0.5
         }
       );
     }, 10);
@@ -298,7 +298,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
           scale: 0,
           visibility: 0,
           ease: "back.inOut",
-          duration: 0.7
+          duration: 0.3
         },
         {
           y: 0,
@@ -306,7 +306,7 @@ export const ArrayFunction = forwardRef((props, ref) => {
           scale: 1,
           visibility: 1,
           ease: "back.inOut",
-          duration: 0.7
+          duration: 0.3
         }
       );
     }, 10);

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import TopScrollButton from "@/components/objects/TopScrollButton";
+import VisualeCard from "@/components/objects/VisualeCard";
 
 export default function page() {
   return (
@@ -20,48 +21,13 @@ export default function page() {
           </p>
         </article>
         <section className="flex flex-wrap items-center justify-center gap-10">
-          <div className="flex flex-col gap-5 rounded-2xl bg-[#00A464] p-5 hover:scale-105 hover:transition-transform hover:duration-100">
-            <p className="text-2xl">Arrays</p>
-            <div className="h-[15rem] w-[22rem] rounded-2xl bg-[#cff6e7]"></div>
-            <span className="flex items-center text-lg hover:underline">
-              Learn Now <GoArrowUpRight size={25} />
-            </span>
-          </div>
-          <div className="flex flex-col gap-5 rounded-2xl bg-[#00A464] p-5 hover:scale-105 hover:transition-transform hover:duration-100">
-            <p className="text-2xl">Linked List</p>
-            <div className="h-[15rem] w-[22rem] rounded-2xl bg-[#cff6e7]"></div>
-            <span className="flex items-center text-lg hover:underline">
-              Learn Now <GoArrowUpRight size={25} />
-            </span>
-          </div>
-          <div className="flex flex-col gap-5 rounded-2xl bg-[#00A464] p-5 hover:scale-105 hover:transition-transform hover:duration-100">
-            <p className="text-2xl">Stacks</p>
-            <div className="h-[15rem] w-[22rem] rounded-2xl bg-[#cff6e7]"></div>
-            <span className="flex items-center text-lg hover:underline">
-              Learn Now <GoArrowUpRight size={25} />
-            </span>
-          </div>
-          <div className="flex flex-col gap-5 rounded-2xl bg-[#00A464] p-5 hover:scale-105 hover:transition-transform hover:duration-100">
-            <p className="text-2xl">Merge Sort</p>
-            <div className="h-[15rem] w-[22rem] rounded-2xl bg-[#cff6e7]"></div>
-            <span className="flex items-center text-lg hover:underline">
-              Learn Now <GoArrowUpRight size={25} />
-            </span>
-          </div>
-          <div className="flex flex-col gap-5 rounded-2xl bg-[#00A464] p-5 hover:scale-105 hover:transition-transform hover:duration-100">
-            <p className="text-2xl">Quick Sort</p>
-            <div className="h-[15rem] w-[22rem] rounded-2xl bg-[#cff6e7]"></div>
-            <span className="flex items-center text-lg hover:underline">
-              Learn Now <GoArrowUpRight size={25} />
-            </span>
-          </div>
-          <div className="flex flex-col gap-5 rounded-2xl bg-[#00A464] p-5 hover:scale-105 hover:transition-transform hover:duration-100">
-            <p className="text-2xl">Insertion Sort</p>
-            <div className="h-[15rem] w-[23rem] rounded-2xl bg-[#cff6e7]"></div>
-            <span className="flex items-center text-lg hover:underline">
-              Learn Now <GoArrowUpRight size={25} />
-            </span>
-          </div>
+          <VisualeCard title="Arrays" link="arrays" />
+          <VisualeCard title="Linked List" link="linkedList" />
+          <VisualeCard title="Stacks" link="stacks" />
+          <VisualeCard title="Bubble Sort" link="bubblesort" />
+          <VisualeCard title="Merge Sort" link="mergeSort" />
+          <VisualeCard title="Quick Sort" link="arrays" />
+          <VisualeCard title="Insertion Sort" link="arrays" />
         </section>
         <div className="flex justify-end">
           <TopScrollButton />

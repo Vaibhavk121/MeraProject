@@ -5,18 +5,18 @@ const Footer = () => {
   return (
     <footer className="flex w-full flex-col items-center gap-3 py-2  justify-center text-lg bg-[#008151] font-medium text-white">
       <section className="flex w-[95%] mt-3 flex-col gap-3">
-        <h4 className="text-3xl">Snippet2Sketch</h4>
+        <Link href={'/'} className="text-3xl ">Snippet2Sketch</Link>
         <div className="flex justify-between ">
           <div className="flex gap-10 items-center uppercase">
-            <Link href="/" className="">
+            <Link href="/" className="hover:underline">
               HOME
             </Link>
-            <Link href="/" className="">
+            <Link href="/visualize" className="hover:underline">
               SKETCH
             </Link>
-            <Link href="/" className="">
+            <Link href="/aboutus" className="hover:underline">
               ABOUT US
-            </Link>
+            </Link> 
           </div>
           <div className="flex gap-10 items-center">
             <a href="/" className="text-xl hover:underline">Want to Contribute ?</a>

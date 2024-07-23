@@ -23,7 +23,7 @@ export default function Navbar() {
         <Link
           href="/visualize"
           className={
-            `${pathname === "/visualize" ? activeClass : ""} ` + basicButtonClass
+            `${pathname === "/  " ? activeClass : ""} ` + basicButtonClass
           }
         >
           Visualize

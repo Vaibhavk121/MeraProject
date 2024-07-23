@@ -6,15 +6,16 @@ import Link from "next/link";
 import { LuLinkedin } from "react-icons/lu";
 import { LuGithub } from "react-icons/lu";
 import { IoPaperPlaneOutline } from "react-icons/io5";
+import { Button } from "@/components/ui/button";
 export default function page() {
   return (
     <main className="flex flex-col  items-center justify-center gap-20 text-white">
       <div className="max-w-[1280px]">
       <SubNavbar />
-      <article className="flex  flex-col gap-10">
+      <article className="flex mt-10 flex-col gap-10">
         <h1 className="text-5xl">About Us</h1>
         <div className="flex gap-20 max-lg:flex-col">
-          <div className="flex w-1/2 max-lg:w-full flex-col gap-5 text-2xl">
+          <div className="flex  max-lg:w-full flex-col gap-5 text-2xl">
             <p>
               Snippet2Sketch is an online educational tool designed to help
               students and educators understand and visualize data structures
@@ -28,17 +29,12 @@ export default function page() {
               and also visualize them. This helps to have a clear cut
               understanding in every concepts of DSA.
             </p>
+            <p>So why wait??</p>
+            <Button className="bg-white text-black w-fit font-medium rounded-full hover:text-white hover:border p-6 text-lg">Visualise!</Button>
           </div>
-          <figure className="w-1/2 max-lg:w-full">
-            <Image
-              src={homePageImg}
-              alt="home page"
-              className="h-full w-full"
-              />
-          </figure>
         </div>
       </article>
-      <section className="mb-20 flex  flex-col gap-10">
+      <section className="my-20 flex  flex-col gap-10">
         <h2 className="text-4xl">Team</h2>
         <div className="flex flex-wrap justify-between gap-10">
           <div className="flex w-[48%] flex-col gap-5 rounded-2xl border border-white p-5 max-lg:w-[45%] max-md:w-full">
