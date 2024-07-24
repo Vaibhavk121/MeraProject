@@ -186,8 +186,8 @@ const LinkListFunction = () => {
           >
             {isOpen && (
               <>
-                <p className="flex justify-center border-y-2 border-solid border-white p-1 text-xl">
-                  Operation
+                <p className="flex justify-center p-1 text-2xl">
+                  Queue Operation
                 </p>
                 <div className="m-2 flex items-center">
                   <div className="flex w-full items-center justify-between">
@@ -252,8 +252,8 @@ const LinkListFunction = () => {
           </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="absolute top-1/2 -translate-y-1/2 transform bg-white p-2 text-black"
-            style={{ right: isOpen ? "-1rem" : "-1rem" }}
+            className="absolute top-1/2  -translate-y-1/2 transform bg-white p-2 text-black"
+            style={{ right: isOpen ? "-1rem" : "calc(100% - 2rem)" }}
           >
             {isOpen ? (
               <MdKeyboardDoubleArrowLeft />
@@ -285,7 +285,7 @@ const LinkListFunction = () => {
                   )}
                   {i === noOfList.length - 1 && (
                     <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 transform text-center text-xl text-red-500">
-                      Rare
+                      Rear
                     </div>
                   )}
                 </div>
@@ -297,7 +297,6 @@ const LinkListFunction = () => {
           </div>
         </div>
       </section>
-
     </>
   );
 };

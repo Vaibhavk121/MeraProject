@@ -280,7 +280,7 @@ const LinkListFunction = () => {
                 <div className={`border-white border-r-2 border-solid bg-black text-white rounded-sm transition-all duration-300 ${isOpen ? 'w-96' : 'w-0 overflow-hidden'}`}>
                     {isOpen && (
                     <>
-                        <p className="justify-center flex border-y-2 border-solid p-1 text-xl border-white">Operation</p>
+                        <p className="justify-center flex p-1 text-2xl border-white">Linked List Operation</p>
                         <div className="flex items-center m-2">
                         <div className="flex w-full justify-between items-center">
                             <span className="text-md font-medium flex items-center">
