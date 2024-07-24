@@ -1,5 +1,4 @@
 .BubbleScroll {
-    box-shadow: 0 20px 50px rgba(166, 145, 25, 0.7);
     overflow-x: auto;
     overflow-y: hidden; /* Prevent vertical scrolling */
     height: 400px;

@@ -1,5 +1,4 @@
 .SelectionScroll {
-    box-shadow: 0 20px 50px rgba(107, 158, 228, 0.7);
     overflow-x: auto;
     overflow-y: hidden; /* Prevent vertical scrolling */
     height: 400px;
@@ -23,10 +22,6 @@
     background: transparent; /* Thumb color of the scrollbar */
 }
 
-.SelectionScroll {
-    overflow-y: auto;
-    overflow-x: hidden;
-}
 
 .box {
     margin: 5px;

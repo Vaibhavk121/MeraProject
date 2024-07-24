@@ -154,7 +154,7 @@ const BubbleSort = () => {
             <p className="flex justify-center items-center text-xl text-white p-5">Bubble Sort</p>
             <section
                 ref={container}
-                className="BubbleScroll h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
+                className="BubbleScroll h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white my-20"
             >
                 <div className="relative flex">
                     <div
@@ -164,7 +164,7 @@ const BubbleSort = () => {
                     >
                         {isOpen && (
                             <>
-                                <p className="justify-center flex border-y-2 border-solid p-1 text-xl border-white">Operation</p>
+                                <p className="justify-center flex  p-1 text-2xl border-white">Bubble Sort Operation</p>
                                 <div className="flex items-center m-2">
                                     <div className="flex w-full justify-between items-center">
                                         <span className="text-md font-medium flex items-center">
@@ -232,21 +232,6 @@ const BubbleSort = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            <section className="mt-8 bg-green-600 bg-opacity-70 p-4 flex justify-evenly">
-                <div
-                    className="border-2 border-gray-400 bg-black text-white rounded-xl w-[500px] h-[500px] gap-4 m-3
-                shadow-[0_20px_50px_rgba(0,0,0,1)]"
-                >
-                    <p className="border-y-2 border-white p-2 flex justify-center text-2xl">Code</p>
-                </div>
-                <div
-                    className="border-2 border-gray-400 bg-black text-white rounded-xl w-[500px] h-[500px] gap-4 m-3
-                shadow-[0_20px_50px_rgba(0,0,0,1)]"
-                >
-                    <p className="border-y-2 border-white p-2 flex justify-center text-2xl">Explanation</p>
                 </div>
             </section>
         </>

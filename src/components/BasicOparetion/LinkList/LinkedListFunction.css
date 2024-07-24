@@ -8,7 +8,6 @@
 }
 
 .HorizontalScroller {
-    box-shadow: 0 10px 20px rgba(240, 46, 170, 0.7);
     overflow-x: auto;
     overflow-y: hidden; /* Prevent vertical scrolling */
     height: 400px;
