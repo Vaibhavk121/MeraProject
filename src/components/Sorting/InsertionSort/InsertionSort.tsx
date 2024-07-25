@@ -1,36 +1,46 @@
 'use client';
-
 import React, { useRef, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
-import './BubbleSort.css';
+import './InsertionSort.css';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
 
+// Define the structure of a list item
 interface ListItem {
     id: number;
     value: number;
 }
 
-const BubbleSort = () => {
+const InsertionSort = () => {
+    // State to manage the visibility of the sidebar
     const [isOpen, setIsOpen] = useState(true);
+    // CSS class for styling the list items
     const boxClassVariable = "flex h-14 w-14 items-center justify-center rounded-lg text-white text-xl font-medium drop-shadow-lg ";
 
+    // State to manage the default text display
     const [defaultText, setDefaultText] = useState(true);
+    // Ref to the container element
     const container = useRef<HTMLDivElement>(null);
+    // State to manage the list of numbers
     const [noOfList, setNoOfList] = useState<ListItem[]>([]);
+    // State to manage the input for creating the list
     const [createNumber, setCreateNumber] = useState<number | string>(5);
-    const [currentStep, setCurrentStep] = useState(0);
-    const [swapIndices, setSwapIndices] = useState<{ index1: number, index2: number } | null>(null);
-    const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+    // State to manage the current step of the sorting process
+    const [currentStep, setCurrentStep] = useState(1);
+    // State to manage the current index being sorted
+    const [currentIndex, setCurrentIndex] = useState<number>(1);
+    // State to manage whether sorting is in progress
     const [isSorting, setIsSorting] = useState(false);
+    // State to manage whether sorting is completed
     const [isSorted, setIsSorted] = useState(false);
-    const [finalIndexPosition, setFinalIndexPosition] = useState<number | null>(null);
 
+    // Handler for the input change event to set the number of list items
     const createInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = Math.min(Number(event.currentTarget.value), 100);
+        const value = Math.min(Math.max(Number(event.currentTarget.value), 1), 100);
         setCreateNumber(value);
     };
 
+    // Function to generate a default list of unique random numbers
     const generateDefaultList = () => {
         const newNumbers: ListItem[] = [];
         const targetLength = Number(createNumber);
@@ -48,77 +58,70 @@ const BubbleSort = () => {
             }
         }
 
+        // Update state with the new list and reset sorting states
         setNoOfList(newNumbers);
         setDefaultText(false);
-        setCurrentStep(0);
-        setCurrentIndex(null);
+        setCurrentStep(1);
+        setCurrentIndex(1);
         setIsSorting(false);
         setIsSorted(false);
-        setFinalIndexPosition(null);
 
-        const onCreateButton = contextSafe(() => {
-            setTimeout(() => {
-                gsap.from(".box", {
-                    y: -500,
-                    stagger: 0.1,
-                    scale: 0,
-                    visibility: 0,
-                    ease: "back.inOut",
-                    duration: 0.5, // Increased speed of creation animation
-                });
-            }, 10);
+        // Animate the list items using GSAP
+        gsap.from(".box", {
+            y: -500,
+            stagger: 0.1,
+            scale: 0,
+            visibility: 0,
+            ease: "back.inOut",
+            duration: 0.5,
         });
-        onCreateButton();
     };
 
-    const getNextStep = () => {
+    // Function to perform the next step of the insertion sort
+    const getNextStep = async () => {
         let list = [...noOfList];
         let len = list.length;
-        let i = Math.floor(currentStep / (len - 1));
-        let j = currentStep % (len - 1);
+        let i = currentStep;
+        let j = currentIndex;
 
         if (i < len) {
-            setCurrentIndex(j);
-            if (list[j].value > list[j + 1].value) {
+            if (j > 0 && list[j].value < list[j - 1].value) {
+                // Swap the elements if they are out of order
                 const temp = list[j];
-                list[j] = list[j + 1];
-                list[j + 1] = temp;
-                setSwapIndices({ index1: j, index2: j + 1 });
+                list[j] = list[j - 1];
+                list[j - 1] = temp;
+                await animateSwap(j, j - 1);
+                setCurrentIndex(j - 1);
             } else {
-                setSwapIndices(null);
+                // Move to the next step and index
+                setCurrentStep(i + 1);
+                setCurrentIndex(i + 1);
             }
             setNoOfList(list);
-            setCurrentStep(currentStep + 1);
         } else {
+            // Sorting is completed
             setIsSorting(false);
-            setCurrentIndex(null);
-            setFinalIndexPosition(0); // Set the final position of the indicator to 0
             setIsSorted(true);
         }
     };
 
-    const startBubbleSort = () => {
+    // Function to start the sorting process
+    const startInsertionSort = () => {
         setIsSorting(true);
     };
 
+    // Effect to trigger the next step of sorting after a delay
     useEffect(() => {
-        if (isSorting && currentStep < noOfList.length * (noOfList.length - 1)) {
+        if (isSorting && currentStep < noOfList.length) {
             const timer = setTimeout(() => {
                 getNextStep();
-            }, 1000); // Adjusted interval for faster sorting
+            }, 1000);
 
             return () => clearTimeout(timer);
         }
-    }, [isSorting, currentStep, noOfList]);
+    }, [isSorting, currentStep, currentIndex, noOfList]);
 
-    function contextSafe(callback: () => void) {
-        return () => {
-            if (container.current) {
-                callback();
-            }
-        };
-    }
-
+    // Function to animate the swap of two elements using GSAP
     const animateSwap = (index1: number, index2: number) => {
         return new Promise<void>((resolve) => {
             const box1 = document.querySelector(`.box${noOfList[index1].id}`);
@@ -129,12 +132,12 @@ const BubbleSort = () => {
 
                 tl.to([box1, box2], {
                     backgroundColor: (i) => (i === 0 ? "#FFD700" : "#FF4500"),
-                    duration: 0.5, // Increased speed of swap animation
+                    duration: 0.5,
                 })
                     .to(
                         box1,
                         {
-                            x: 70,
+                            x: -70,
                             duration: 0.3,
                         },
                         "<"
@@ -142,7 +145,7 @@ const BubbleSort = () => {
                     .to(
                         box2,
                         {
-                            x: -70,
+                            x: 70,
                             duration: 0.3,
                         },
                         "<"
@@ -161,20 +164,12 @@ const BubbleSort = () => {
         });
     };
 
-    useEffect(() => {
-        if (swapIndices) {
-            animateSwap(swapIndices.index1, swapIndices.index2).then(() => {
-                setSwapIndices(null);
-            });
-        }
-    }, [swapIndices]);
-
     return (
         <>
-            <p className="flex justify-center items-center text-xl text-white p-5">Bubble Sort</p>
+            <p className="flex justify-center items-center text-xl text-white p-5">Insertion Sort</p>
             <section
                 ref={container}
-                className="BubbleScroll h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white my-20"
+                className="InsertionScroll h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white my-20"
             >
                 <div className="relative flex">
                     <div
@@ -184,7 +179,7 @@ const BubbleSort = () => {
                     >
                         {isOpen && (
                             <>
-                                <p className="justify-center flex  p-1 text-2xl border-white">Bubble Sort Operation</p>
+                                <p className="justify-center flex  p-1 text-2xl border-white">Insertion Sort Operation</p>
                                 <div className="flex items-center m-2">
                                     <div className="flex w-full justify-between items-center">
                                         <span className="text-md font-medium flex items-center">
@@ -213,7 +208,7 @@ const BubbleSort = () => {
                                         <Button
                                             className="md:w-[7rem] p-2 ml-2 mt-7"
                                             variant={"secondary"}
-                                            onClick={startBubbleSort}
+                                            onClick={startInsertionSort}
                                         >
                                             Start
                                         </Button>
@@ -234,7 +229,7 @@ const BubbleSort = () => {
                 <div className="flex flex-wrap justify-center border-2 items-center flex-grow">
                     {defaultText && (
                         <span className="flex items-center w-full h-full justify-center text-2xl font-medium text-center text-white">
-                            Click an Operation to view the Bubble Sort
+                            Click an Operation to view the Insertion Sort
                         </span>
                     )}
                     <div className="w-full h-full flex justify-center items-center">
@@ -242,11 +237,6 @@ const BubbleSort = () => {
                             <div key={ele.id} className="relative">
                                 <div className="relative border-gray-400 border-4 p-1 rounded-md">
                                     <div className={`${boxClassVariable} box box${ele.id} relative`}>{ele.value.toString()}</div>
-                                    {/* {(i === currentIndex || (finalIndexPosition !== null && i === finalIndexPosition)) && (
-                                        <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-green-500 text-center">
-                                            i
-                                        </div>
-                                    )} */}
                                 </div>
                                 <div className="text-lg font-medium absolute left-8 text-center mt-1 text-white">{i}</div>
                             </div>
@@ -258,4 +248,4 @@ const BubbleSort = () => {
     );
 };
 
-export default BubbleSort;
+export default InsertionSort;
