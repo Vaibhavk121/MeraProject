@@ -5,7 +5,7 @@ import MedCube from '@/components/objects/MedCube';
 import Link from 'next/link';
 import { FaAngleLeft, FaAngleRight, FaAnglesDown } from 'react-icons/fa6';
 
-const AboutQuick = () => {
+const AboutMerge = () => {
 
     const handleScroll = () => {
         if (targetSectionRef.current) {
@@ -22,9 +22,10 @@ const AboutQuick = () => {
   return (
     <>
     <section className="relative flex h-[85vh] flex-col items-center justify-around overflow-hidden text-white">
-      <h1 className="p-10 text-6xl">Quick Sort</h1>
+      <h1 className="p-10 text-6xl">Merge Sort</h1>
       <p className="w-[60%] text-center text-2xl">
-      Quick sort is a fast sorting algorithm that partitions an array around a pivot and sorts the sub-arrays recursively. It has an average time complexity of 
+
+            Merge sort divides a list into halves, sorts them, and merges them back together. It sorts efficiently with 
         𝑂
         (
         𝑛
@@ -32,7 +33,7 @@ const AboutQuick = () => {
         ⁡
         𝑛
         )
-        O(nlogn).
+        O(nlogn) time complexity.
       </p>
       <Button variant={"secondary"} className="text-lg m-2"
       onClick={handleScroll}
@@ -105,7 +106,7 @@ const AboutQuick = () => {
       />
       <div className="absolute bottom-0 flex w-full justify-between text-3xl font-thin text-black">
       <Link
-          href="/insertionsort"
+          href="/quicksort"
           className={linkButtonClass}
           onMouseEnter={() => setIsHoverLeft(true)}
           onMouseLeave={() => setIsHoverLeft(false)}
@@ -115,13 +116,13 @@ const AboutQuick = () => {
               "flex items-center duration-100 " 
             }
           >
-            <FaAngleLeft size={"2rem"} /> <p>Insertion Sort</p>
+            <FaAngleLeft size={"2rem"} /> <p>Quick Sort</p>
           </div>
         </Link>
 
 
         <Link
-          href="/mergesort"
+          href="/arrays"
           className={linkButtonClass}
           onMouseEnter={() => setIsHoverRight(true)}
           onMouseLeave={() => setIsHoverRight(false)}
@@ -131,7 +132,7 @@ const AboutQuick = () => {
               "flex items-center duration-100 w-[340px] justify-center " 
             }
           >
-            <p>Merge Sort </p> <FaAngleRight size={"2rem"} />
+            <p>Array </p> <FaAngleRight size={"2rem"} />
           </div>
         </Link>
       </div>
@@ -145,4 +146,4 @@ const AboutQuick = () => {
   )
 }
 
-export default AboutQuick
+export default AboutMerge
