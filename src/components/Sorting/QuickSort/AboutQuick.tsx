@@ -5,7 +5,7 @@ import MedCube from '@/components/objects/MedCube';
 import Link from 'next/link';
 import { FaAngleLeft, FaAngleRight, FaAnglesDown } from 'react-icons/fa6';
 
-const AboutSelection = () => {
+const AboutQuick = () => {
 
     const handleScroll = () => {
         if (targetSectionRef.current) {
@@ -22,9 +22,17 @@ const AboutSelection = () => {
   return (
     <>
     <section className="relative flex h-[85vh] flex-col items-center justify-around overflow-hidden text-white">
-      <h1 className="p-10 text-6xl">Selection Sort</h1>
+      <h1 className="p-10 text-6xl">Quick Sort</h1>
       <p className="w-[60%] text-center text-2xl">
-      Selection sort repeatedly finds the smallest element from an unsorted list and moves it to the beginning. It maintains sorted and unsorted subarrays, progressively sorting the list. Although simple, it is inefficient for large lists with a time complexity of O(n²).
+      Quick sort is a fast sorting algorithm that partitions an array around a pivot and sorts the sub-arrays recursively. It has an average time complexity of 
+        𝑂
+        (
+        𝑛
+        log
+        ⁡
+        𝑛
+        )
+        O(nlogn).
       </p>
       <Button variant={"secondary"} className="text-lg m-2"
       onClick={handleScroll}
@@ -97,7 +105,7 @@ const AboutSelection = () => {
       />
       <div className="absolute bottom-0 flex w-full justify-between text-3xl font-thin text-black">
       <Link
-          href="/bubblesort"
+          href="/insertionsort"
           className={linkButtonClass}
           onMouseEnter={() => setIsHoverLeft(true)}
           onMouseLeave={() => setIsHoverLeft(false)}
@@ -107,13 +115,13 @@ const AboutSelection = () => {
               "flex items-center duration-100 " 
             }
           >
-            <FaAngleLeft size={"2rem"} /> <p>Bubble Sort</p>
+            <FaAngleLeft size={"2rem"} /> <p>Insertion Sort</p>
           </div>
         </Link>
 
 
         <Link
-          href="/insertionsort"
+          href="/selectionsort"
           className={linkButtonClass}
           onMouseEnter={() => setIsHoverRight(true)}
           onMouseLeave={() => setIsHoverRight(false)}
@@ -123,7 +131,7 @@ const AboutSelection = () => {
               "flex items-center duration-100 w-[340px] justify-center " 
             }
           >
-            <p>Insertion Sort </p> <FaAngleRight size={"2rem"} />
+            <p>Merge Sort </p> <FaAngleRight size={"2rem"} />
           </div>
         </Link>
       </div>
@@ -137,4 +145,4 @@ const AboutSelection = () => {
   )
 }
 
-export default AboutSelection
+export default AboutQuick
