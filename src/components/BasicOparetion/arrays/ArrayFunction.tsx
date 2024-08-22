@@ -80,6 +80,9 @@ export const ArrayFunction = forwardRef((props, ref) => {
       Number(insertNumberIndex) > mainArray.length
     ) {
       setDefaultText("Please Enter a Valid Index Number");
+      setTimeout(() => {
+        setDefaultText(false);
+      }, 2000);
       return;
     }
     let lastInx = arrayLength;
