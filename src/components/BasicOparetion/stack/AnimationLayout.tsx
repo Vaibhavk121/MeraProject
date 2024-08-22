@@ -119,6 +119,7 @@ export default function AnimationLayout() {
       }, 2000);
       return;
     }
+    setPushBtn(true);
     const newTop = top - 1;
     setTop(newTop);
     setTimeout(() => {
@@ -139,6 +140,7 @@ export default function AnimationLayout() {
           ease: "back.inOut",
           onComplete: () => {
             setTopPointer(newLevel);
+            setPushBtn(false);
           },
         },
       );
@@ -258,6 +260,7 @@ export default function AnimationLayout() {
                         className="w-[5rem] hover:scale-100 active:scale-95 duration-100 transition"
                         variant={"secondary"}
                         onClick={onPeekBtnHandler}
+                        disabled={pushBtn ? true : false}
                     >
                         Peek()
                     </Button>
