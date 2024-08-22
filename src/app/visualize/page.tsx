@@ -25,9 +25,9 @@ export default function page() {
           <VisualeCard title="Linked List" link="linkedList" />
           <VisualeCard title="Stacks" link="stacks" />
           <VisualeCard title="Bubble Sort" link="bubblesort" />
-          <VisualeCard title="Merge Sort" link="mergeSort" />
-          <VisualeCard title="Quick Sort" link="arrays" />
-          <VisualeCard title="Insertion Sort" link="arrays" />
+          <VisualeCard title="Merge Sort" link="mergesort" />
+          <VisualeCard title="Quick Sort" link="quicksort" />
+          <VisualeCard title="Insertion Sort" link="insertionsort" />
         </section>
         <div className="flex justify-end">
           <TopScrollButton />

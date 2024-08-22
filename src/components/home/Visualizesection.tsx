@@ -4,6 +4,10 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Button } from "../ui/button";
+import Image from "next/image";
+import arrayImg from "../../../public/array.png"
+import stackImg from "../../../public/newStack.png"
+import linkedListImg from "../../../public/linkedList.png"
 
 const Visualizesection = () => {
   const responsive = {
@@ -34,34 +38,46 @@ const Visualizesection = () => {
 
       <div className="visualise_card mx-auto mt-40 h-2/4 w-3/4">
         <Carousel responsive={responsive}>
-          <Link href="/">
+          <Link href="/arrays">
             <div className="h-80 w-72 rounded-3xl bg-white">
               <div className="visualize_card h-full w-full">
                 <p className="absolute left-4 top-4 text-xl">Arrays</p>
+                <figure className="size-full">
+                <Image src={arrayImg} alt="array Image" className="object-cover size-full"/>
+                </figure>
               </div>
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="/stacks">
             <div className="h-80 w-72 rounded-3xl bg-white">
               <div className="visualize_card h-full w-full">
                 <p className="absolute left-4 top-4 text-xl">Stacks</p>
+                <figure className="size-full">
+                <Image src={stackImg} alt="array Image" className="object-cover size-full"/>
+                </figure>
               </div>
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="/queue">
             <div className="h-80 w-72 rounded-3xl bg-white">
               <div className="visualize_card h-full w-full">
                 <p className="absolute left-4 top-4 text-xl">Queue</p>
+                <figure className="size-full">
+                <Image src={stackImg} alt="array Image" className="object-cover size-full"/>
+                </figure>
               </div>
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="/linkedList">
             <div className="h-80 w-72 rounded-3xl bg-white">
               <div className="visualize_card h-full w-full">
                 <p className="absolute left-4 top-4 text-xl">Linked List</p>
+                <figure className="size-full p-5">
+                <Image src={linkedListImg} alt="array Image" className="object-cover size-full"/>
+                </figure>
               </div>
             </div>
           </Link>
