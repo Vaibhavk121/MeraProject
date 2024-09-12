@@ -48,17 +48,17 @@ export default function page() {
             <div className="mt-5">
               <ul className="flex gap-3">
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://www.linkedin.com/in/babith-k-p-49a43b254/"} target="_blank">
                     <LuLinkedin size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://github.com/Babithkp"} target="_blank">
                     <LuGithub size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://drive.google.com/file/d/1TqdJ7dxD4RG4oU40l86vEEaZaJJOadve/view?usp=drive_link"} target="_blank">
                     <IoPaperPlaneOutline size={25} />
                   </Link>
                 </li>
@@ -74,12 +74,12 @@ export default function page() {
             <div className="mt-5">
               <ul className="flex gap-3">
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://www.linkedin.com/in/thomas-antony-s/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"} target="_blank">
                     <LuLinkedin size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://github.com/ThomasAntonyS"} target="_blank">
                     <LuGithub size={25} />
                   </Link>
                 </li>
@@ -100,12 +100,12 @@ export default function page() {
             <div className="mt-5">
               <ul className="flex gap-3">
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://www.linkedin.com/in/vikas-thapa-2395b6265?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"} target="_blank">
                     <LuLinkedin size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://github.com/Thapavikas"} target="_blank">
                     <LuGithub size={25} />
                   </Link>
                 </li>
@@ -128,17 +128,17 @@ export default function page() {
             <div className="mt-5">
               <ul className="flex gap-3">
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://www.linkedin.com/in/sudarshan-v-91168b253/"} target={"_blank"}>
                     <LuLinkedin size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://github.com/Codeninja004"} target={"_blank"}>
                     <LuGithub size={25} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"}>
+                  <Link href={"https://drive.google.com/file/d/16fIwEIN7TA6DZ4yFV-GeTeuuiP3cfFc_/view?usp=drivesdk"} target={"_blank"}>
                     <IoPaperPlaneOutline size={25} />
                   </Link>
                 </li>
