@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
       </section>
       <section className="w-full border-t-[2px] border-white">
-        <p className="text-center my-2">&copy; 2024 Snippet2Sketch</p>
+        <p className="text-center my-2">&copy; made by vaibhav kumar</p>
       </section>
     </footer>
   );
